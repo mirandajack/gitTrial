@@ -13,14 +13,19 @@ print y
 plt.figure()
 font = {'family': 'Times New Roman', 'size':16}
 plt.rc('font', **font)
-plt.plot(x,y,'o')
+plt.plot(x,y,'o',label='x values')
+plt.plot(x,z,'o',label='y values')
 plt.title('with noise')
-plt.xlabel('x (sec)')
+plt.xlabel('x (sec)',)
 plt.ylabel('x**2+e (volt)')
+plt.legend(loc='upper right')
 plt.show()
 
 dirName = '/Users/Miranda/git/Random Data'
 fileName = 'sampleData.dat'
+
+if not os.path.exists(dirName):
+    os.makedirs(dirName)
 
 dataList = list()
 [dataList.append([x[i],y[i],z[i]]) for i in range(len(x))]
