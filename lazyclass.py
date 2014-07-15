@@ -15,14 +15,42 @@ class simpleOperations(object):
         print self.x
         self.x = [self.x[i]+i for i in range(len(self.x))]
         print self.x
-        return None
      
-    def differenceXY(self):
+    def differenceXY(self,x=None,y=None):
+        if (x==None and y!=None) or (x!=None and y==None):
+            raise XanaError('NeedBothError')
+        if x!=None and y!=None:
+            if len(x)!=len(y):
+                raise XanaError('NeedSameLength')
+        if x==None:
+            x=self.x
+        if y==None:
+            y=self.y
+        
         diff = [self.x[i]-self.y[i] for i in range(len(self.x))]
         return diff
      
-     
-#         
+    def printDefaults(self,x=1,y=3,z=4):
+        print 'x=',x
+        print 'y=',y
+        print 'z=',z
+
+# increase the values by 1
+# calculate the product
+    def newFun(self):
+        print self.x
+        self.x = [self.x[i]+i for i in range(len(self.x))]
+        print self.x
+        
+        print self.y
+        self.y = [self.y[i]+i for i in range(len(self.y))]
+        print self.y
+        
+        prod = [self.x[i]*self.y[i] for i in range(len(self.x))]
+        return prod
+        
+        
+
 # x = [2,5,3]
 # y = [4,5,7]
 # 
